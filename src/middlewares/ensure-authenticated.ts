@@ -26,6 +26,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
             role,
         }
 
+        return next()
     } catch (error) {
         throw new AppError("Invalid JWT token", 401)
     }

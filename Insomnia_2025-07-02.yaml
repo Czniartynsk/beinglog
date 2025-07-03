@@ -1,0 +1,153 @@
+type: collection.insomnia.rest/5.0
+name: Beinglog
+meta:
+  id: wrk_30bece977d88425e898df99375912fd6
+  created: 1750967450450
+  modified: 1751506370285
+  description: ""
+collection:
+  - name: Deliveries
+    meta:
+      id: fld_4b3840cb706c4b69a9783c896e3f80dc
+      created: 1751506396396
+      modified: 1751506582220
+      sortKey: -1751506396396
+      description: ""
+    children:
+      - url: "{{ _[''].base_url }}/{{ _[''].resource }}"
+        name: Create
+        meta:
+          id: req_b0fc867a12334500b3fa34f3683f18b6
+          created: 1751506808927
+          modified: 1751508293531
+          isPrivate: false
+          description: ""
+          sortKey: -1751506808927
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_0f30e06b11b545daa9868876f0daaa71',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        resource: deliveries
+  - name: Sessions
+    meta:
+      id: fld_ddd099ff9349452991137e1e6c0c1147
+      created: 1751506403135
+      modified: 1751506694297
+      sortKey: -1751506403135
+      description: ""
+    children:
+      - url: "{{ _[''].base_url }}/{{ _[''].resource }}"
+        name: Create
+        meta:
+          id: req_0f30e06b11b545daa9868876f0daaa71
+          created: 1751506738454
+          modified: 1751506807273
+          isPrivate: false
+          description: ""
+          sortKey: -1751506738454
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "bruno@email.com",
+            	"password": "12345678"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        resource: sessions
+  - name: Users
+    meta:
+      id: fld_91fa74fb90c543f7bbfcd4943a3441ee
+      created: 1751506412131
+      modified: 1751506533462
+      sortKey: -1751506403235
+      description: ""
+    children:
+      - url: "{{ _[''].base_url }}/{{ _[''].resource }}"
+        name: Create
+        meta:
+          id: req_491db663b1fb41b8827f6de8a9c53b48
+          created: 1751506427189
+          modified: 1751506724266
+          isPrivate: false
+          description: ""
+          sortKey: -1751506427189
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Bruno",
+            	"password": "12345678",
+            	"email": "bruno@email.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        resource: users
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_09c6616339a373d8671f29c3f088961d87b9eff8
+    created: 1751506370308
+    modified: 1751506370308
+environments:
+  name: Base Environment
+  meta:
+    id: env_09c6616339a373d8671f29c3f088961d87b9eff8
+    created: 1750967450452
+    modified: 1751506370284
+    isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_7734b0f46fe640369671e8b51cb66a9d
+        created: 1751506440596
+        modified: 1751506483194
+        isPrivate: false
+        sortKey: 1751506440597
+      data:
+        "":
+          base_url: localhost:3333
+      color: "#4cb545"
