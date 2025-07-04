@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import z, { string } from "zod";
+import z from "zod";
 import { hash } from "bcrypt"
 import { prisma } from "@/database/prisma";
 import { AppError } from "@/utils/AppError";
@@ -9,10 +9,11 @@ class UsersController {
         const bodySchema = z.object({
             name: z.string().trim().min(2),
             email: z.string().email(),
-            password: z.string().min(8)
+            password: z.string().min(8),
+            role: z.enum(["customer", "sale"]).optional()
         })
 
-        const { name, email, password } = bodySchema.parse(request.body)
+        const { name, email, password, role } = bodySchema.parse(request.body)
 
         const userWithSameEmail = await prisma.user.findFirst({ where: { email }})
 
@@ -27,6 +28,7 @@ class UsersController {
                 name,
                 email,
                 password: hashedPassword,
+                role: role ?? "customer"
             },
         })
 
