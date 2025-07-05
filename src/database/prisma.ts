@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { env } from "../../env";
+import { env } from "../env";
 
 export const prisma = new PrismaClient({
     // A variavel define se o projeto está executando 
