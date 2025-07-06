@@ -37,7 +37,7 @@ class DeliveryLogsController {
             }
         })
 
-        return response.json()
+        return response.status(204).json()
     }
 
     async show(request: Request, response: Response){
